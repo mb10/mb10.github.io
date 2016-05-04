@@ -1,0 +1,132 @@
+/*profile pages*/
+
+#titleProfPage {
+    margin: 0px;
+}
+
+#titleIconProfPage {
+    width: 100px;
+    vertical-align: bottom;
+    margin-bottom: -0.5px;
+}
+
+#titleSubProfPage {
+    display: inline;
+    vertical-align: bottom;
+    font-family: "LibreBaskerville";
+}
+
+.profSubhead {
+    font-family: "LibreBaskerville";
+    margin: 40px 0px 30px 0px;
+    color: #DF9B00;
+}
+
+.profSubhead h3 {
+    color: #000000;
+    opacity: 0.7;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.profSubhead h2 {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.profSubhead h3 {
+    text-align: left;
+    font-size: 16px;
+}
+
+.profileSummary {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.profileSummary p {
+    font-size: 17px;
+    font-family: "Lato";
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#kholoud > .profVideo {
+    margin-top: 0px;
+}
+
+
+/*sidebar*/
+
+.map {
+    width: 90%;
+    float: right;
+    margin-right: -20px;
+    margin-top: -10px;
+}
+
+
+.profVideo {
+    margin-top: -200px;
+}
+
+
+.profCardboard {
+    width: 30px;
+}
+
+.prof360Guide {
+    font-family: "LibreBaskerville";
+    display: inline;
+    font-size: 15px;
+}
+
+.prof360 {
+    text-align: center;
+    margin-top: 60%;
+}
+
+.profPlanet {
+    animation: planetWobble 5s infinite;
+    display: block;
+    width: 100%;
+}
+
+.profPlanet.expand {
+    animation: none;
+    transform: scale(1.2);
+    transition: transform .4s;
+}
+
+.profPlanet.shrink {
+    animation: planetWobble 5s infinite;
+    animation-delay: .6s;
+    transform: scale(1);
+    transition: transform .4s;
+}
+
+
+@media (max-width: 768px) {
+    .map {
+        display: none;
+    }
+    .prof360 {
+        margin-left: 50%;
+        transform: translate(-50%);
+        margin-top: 20px;
+    }
+    .profVideo {
+        margin-top: auto;
+    }
+
+    .profPlanet {
+        width: 300px;
+    }
+}
+
+
+/*end sidebar*/

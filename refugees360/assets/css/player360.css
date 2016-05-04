@@ -1,0 +1,28 @@
+#player360 {
+  height: 85vh;
+  width: 97vw;
+  margin-top:-15px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+#player360 iframe{
+  height: 100%;
+  width: 100%;
+}
+
+#titleProfPage {
+    margin: 0px;
+}
+
+#titleIconProfPage {
+    width: 100px;
+    vertical-align: bottom;
+    margin-bottom: -0.5px;
+}
+
+#titleSubProfPage {
+    display: inline;
+    vertical-align: bottom;
+    font-family: "LibreBaskerville";
+}
