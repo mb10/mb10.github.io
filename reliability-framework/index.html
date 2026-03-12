@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reliability Initiative Framework</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+  }
+
+  /* ===== PAGE 1 ===== */
+  .page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    min-height: 100vh;
+  }
+
+  .page-break {
+    border-top: 2px solid #e0e0e0;
+    margin: 0;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .header .thesis {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 24px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  /* Row of boxes */
+  .row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+
+  .box {
+    background: white;
+    border: 1.5px solid #d4d4d4;
+    border-radius: 10px;
+    padding: 12px 10px;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: box-shadow 0.2s;
+  }
+
+  .box-tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #7c3aed;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  .box:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .box-accent {
+    background: #f8f5ff;
+    border-color: #c4b5fd;
+  }
+
+  .box-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Prioritization bar */
+  .priority-bar {
+    background: #7c3aed;
+    border-radius: 10px;
+    padding: 14px 24px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* Arrows between rows */
+  .arrow-row {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+    margin-bottom: 4px;
+  }
+  .arrow-row svg {
+    display: block;
+  }
+
+  /* Distributed row dashed boxes */
+  .box-dashed {
+    border-style: dashed;
+    border-color: #bbb;
+    background: #fdfdfd;
+  }
+
+  /* Execution model sidebar */
+  .execution-wrapper {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .execution-label {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7c3aed;
+    background: #f0eaff;
+    border: 1px solid #c4b5fd;
+    border-radius: 8px;
+    padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+  }
+  .execution-content {
+    flex: 1;
+  }
+
+  /* SLO badge */
+  .slo-badge {
+    background: #f0eaff;
+    border: 2px solid #7c3aed;
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #7c3aed;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Feedback loop */
+  .feedback {
+    margin-top: 24px;
+    padding: 12px 20px;
+    background: #fefce8;
+    border: 1px solid #e5d68a;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #78700f;
+    text-align: center;
+    font-weight: 500;
+  }
+  .feedback span {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+
+  /* Engineering outcomes row with SLO */
+  .outcomes-with-slo {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin-bottom: 8px;
+  }
+  .outcomes-boxes {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+
+  /* ===== PAGE 2 ===== */
+  .header2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header2 h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  /* North star */
+  .north-star {
+    background: #f8f5ff;
+    border: 1.5px solid #c4b5fd;
+    border-radius: 12px;
+    padding: 20px 28px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .north-star .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 6px;
+  }
+  .north-star p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* Two columns */
+  .two-col {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .col-card {
+    flex: 1;
+    background: white;
+    border: 1.5px solid #d4d4d4;
+    border-radius: 14px;
+    padding: 28px;
+    min-width: 0;
+  }
+
+  .col-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .col-card .subtitle {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .col-card hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+
+  /* Prioritization steps */
+  .pri-step {
+    margin-bottom: 18px;
+  }
+  .pri-step .step-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .pri-step .step-body {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 8px;
+  }
+
+  /* Value cards */
+  .value-item {
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .value-item:nth-child(odd) {
+    background: #f8f5ff;
+  }
+  .value-item:nth-child(even) {
+    background: #fff;
+  }
+  .value-item .value-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .value-item .value-body {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Relationship box */
+  .relationship {
+    background: #f0eaff;
+    border: 1.5px solid #c4b5fd;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .relationship h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #7c3aed;
+    margin-bottom: 8px;
+  }
+  .relationship p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* Key practices row */
+  .practices-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .practice-box {
+    flex: 1;
+    background: #f0eaff;
+    border: 1.5px solid #c4b5fd;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .practice-box .practice-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7c3aed;
+    margin-bottom: 4px;
+  }
+  .practice-box .practice-body {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .section-row-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
+    margin-bottom: 6px;
+    padding-left: 4px;
+  }
+
+  @media print {
+    .page { page-break-after: always; padding: 40px 30px; }
+    .page-break { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: THE FRAMEWORK ==================== -->
+<div class="page">
+  <div class="header">
+    <h1>Reliability Initiative Framework</h1>
+    <div class="thesis">Reliability outcomes are product outcomes</div>
+  </div>
+
+  <!-- Business Outcomes -->
+  <div class="section-label">Product / Business Outcomes</div>
+  <div class="row">
+    <div class="box box-accent">Contractual &amp; Investor Milestones</div>
+    <div class="box box-accent">Compliance &amp; Trust</div>
+    <div class="box box-accent">Customer Satisfaction</div>
+    <div class="box box-accent">Scale</div>
+    <div class="box box-accent">New Capabilities</div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+  </div>
+
+  <!-- Prioritization Bar -->
+  <div class="priority-bar">Prioritization Engine — OKRs</div>
+
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+  </div>
+
+  <!-- Engineering Outcomes -->
+  <div class="section-label">Engineering Outcomes — SLOs</div>
+  <div style="font-size: 11px; color: #888; margin-bottom: 8px; font-style: italic;">SLOs where we can quantify. Engagement signals where we can't.</div>
+  <div class="outcomes-with-slo">
+    <div class="outcomes-boxes">
+      <div class="box">Developer Experience</div>
+      <div class="box">Developer Engagement &amp; Satisfaction</div>
+      <div class="box">Feature Velocity</div>
+      <div class="box">Uptime</div>
+      <div class="box">Performance</div>
+      <div class="box">Security / Safety</div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+  </div>
+
+  <!-- Initiative Pillars with Execution Model -->
+  <div class="section-label">Initiative Pillars</div>
+  <div class="execution-wrapper">
+    <div class="execution-label">Execution Model</div>
+    <div class="execution-content">
+
+      <!-- Central -->
+      <div class="section-row-label">Central — Reliability Team Owns</div>
+      <div class="row">
+        <div class="box">Incident Mgmt +<br>Observability</div>
+        <div class="box">Testing +<br>Simulation</div>
+        <div class="box">Education &amp;<br>Documentation</div>
+        <div class="box">Observability<br>Infra &amp; Tooling</div>
+        <div class="box">Security &amp;<br>Guardrails</div>
+        <div class="box">Automation &amp;<br>Agentic AI</div>
+        <div class="box">Release<br>Safety</div>
+      </div>
+
+      <div style="height: 10px;"></div>
+
+      <!-- Distributed -->
+      <div class="section-row-label">Distributed — Embedded in Product Teams</div>
+      <div class="row">
+        <div class="box box-dashed">Incident<br>Response</div>
+        <div class="box box-dashed">Incident<br>Resolution</div>
+        <div class="box box-dashed">Domain Testing<br>+ Sim</div>
+        <div class="box box-dashed">Runbooks, SDLC,<br>Best Practices</div>
+        <div class="box box-dashed">Domain-level<br>Observability</div>
+        <div class="box box-dashed">Automated<br>Workflows</div>
+        <div class="box box-dashed">Application<br>Runbooks</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Feedback loop -->
+  <div class="feedback">
+    <span>&#8635;</span> Flywheels: Operational Learnings Inform Direction<br>
+    <em style="font-weight: 400; font-size: 11px; color: #96830f;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
+  </div>
+</div>
+
+<!-- ==================== PAGE BREAK ==================== -->
+<div class="page-break"></div>
+
+<!-- ==================== PAGE 2: OPERATING STRATEGY ==================== -->
+<div class="page">
+  <div class="header2">
+    <h1>Operating Strategy for a Reliability Org</h1>
+  </div>
+
+  <!-- North Star -->
+  <div class="north-star">
+    <div class="label">North Star</div>
+    <p>Enable sustained engineering velocity through immediate and long term reliability initiatives that span infrastructure, developer tooling &amp; enablement, process, partnerships across domains, education and automation.</p>
+  </div>
+
+  <!-- Two Columns -->
+  <div class="two-col">
+
+    <!-- Prioritization Engine -->
+    <div class="col-card">
+      <h2>Prioritization Engine</h2>
+      <div class="subtitle">How we decide what to work on</div>
+      <hr>
+
+      <div class="pri-step">
+        <div class="step-title">1. Rank by business criticality</div>
+        <div class="step-body">Leadership ranks business outcomes:<br>existential, critical, important</div>
+      </div>
+
+      <div class="pri-step">
+        <div class="step-title">2. Evaluate within tiers</div>
+        <div class="step-body">Assess impact:effort ratio. Weight foundational work that unblocks other initiatives.</div>
+      </div>
+
+      <div class="pri-step">
+        <div class="step-title">3. Account for time sensitivity</div>
+        <div class="step-body">Hard deadlines override pure impact:effort.</div>
+      </div>
+
+      <div class="pri-step">
+        <div class="step-title">4. Manage uncertainty deliberately</div>
+        <div class="step-body">Uncertainty gets attention, not impulse. Timebox a spike before committing full resources.</div>
+      </div>
+    </div>
+
+    <!-- Operating Values -->
+    <div class="col-card">
+      <h2>Operating Values</h2>
+      <div class="subtitle">How we behave while doing it</div>
+      <hr>
+
+      <div class="value-item">
+        <div class="value-title">Every initiative traces to a business outcome</div>
+        <div class="value-body">If you can't draw the line, question the work.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-title">Know the who</div>
+        <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-title">Collective action</div>
+        <div class="value-body">We choose actions for collective success and build the organizational observability to recognize and reward this.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-title">Shared ownership</div>
+        <div class="value-body">Application and reliability teams are jointly accountable for and rewarded for org-level reliability outcomes.</div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-title">We own the practices and frameworks that make reliability systematic.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Relationship -->
+  <div class="relationship">
+    <h3>How they work together</h3>
+    <p>The Prioritization Engine decides <strong>what</strong> to work on. The Operating Values ensure <strong>how</strong> we do it serves collective success.</p>
+    <p style="margin-top: 8px;">The same thesis governs both: reliability outcomes are product outcomes.</p>
+  </div>
+
+  <!-- Key Practices -->
+  <div class="section-label" style="margin-top: 32px;">Key Practices — What Makes the Framework Operational</div>
+  <div class="practices-row">
+    <div class="practice-box">
+      <div class="practice-title">SLOs</div>
+      <div class="practice-body">Linked to business outcomes. The contract between reliability and the business.</div>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Capacity Planning</div>
+      <div class="practice-body">Without it, strategy is aspiration. Ensures initiatives are resourced to succeed.</div>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Strategic Roadmap</div>
+      <div class="practice-body">Living artifact. Output of the prioritization engine, reviewed and evolved continuously.</div>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Cross-functional Planning</div>
+      <div class="practice-body">Reliability outcomes require partnership. Planning happens with product, infra, and security.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
