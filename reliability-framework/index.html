@@ -11,107 +11,61 @@
 
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background: #c8c8c6;
+    /* Warm concrete base with streaky texture */
+    background-color: #cdc5b4;
     background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-    color: #000;
+      /* faint grid */
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px),
+      /* vertical rain streaks */
+      repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 40px,
+        rgba(120,110,95,0.03) 40px,
+        rgba(120,110,95,0.06) 42px,
+        transparent 44px
+      ),
+      /* subtle noise-like grain via radial dots */
+      radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px, 100% 100%, 4px 4px;
+    color: #3b3830;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ===== FRAME ===== */
+  /* ===== CONTENT CONTAINER ===== */
   .page {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 56px 48px;
-    background: #f0f0ee;
-    box-shadow:
-      0 2px 4px rgba(0,0,0,0.1),
-      0 12px 32px rgba(0,0,0,0.08),
-      inset 0 1px 0 rgba(255,255,255,0.5);
-    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 48px;
   }
 
-  /* Registration marks */
-  .page::before,
-  .page::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-color: #c0c0be;
-    border-style: solid;
-  }
-  .page::before {
-    top: 12px;
-    left: 12px;
-    border-width: 1px 0 0 1px;
-  }
-  .page::after {
-    top: 12px;
-    right: 12px;
-    border-width: 1px 1px 0 0;
-  }
-
-  /* Bottom registration marks via inner element */
-  .page-inner::before,
-  .page-inner::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-color: #c0c0be;
-    border-style: solid;
-  }
-  .page-inner::before {
-    bottom: 12px;
-    left: 12px;
-    border-width: 0 0 1px 1px;
-  }
-  .page-inner::after {
-    bottom: 12px;
-    right: 12px;
-    border-width: 0 1px 1px 0;
-  }
-
-  /* Version/coordinate mark */
-  .page-ref {
-    position: absolute;
-    bottom: 14px;
-    right: 40px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
-    color: #b0b0ae;
-    letter-spacing: 0.5px;
-  }
-
-  .page-break {
-    border: none;
-    margin: 0;
+  .page + .page {
+    border-top: 1px solid rgba(0,0,0,0.08);
   }
 
   /* Header */
   .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
   .header h1 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    color: #2a2a2a;
+    color: #2a2720;
   }
   .header .thesis {
     display: inline-block;
-    background: #e0dac8;
-    color: #3a3832;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    padding: 6px 16px;
+    padding: 5px 14px;
     letter-spacing: 0.3px;
-    border: 2px solid #9a9080;
+    color: #5a5445;
+    border-bottom: 2px solid #8b9bb0;
   }
 
   /* Section labels */
@@ -121,22 +75,21 @@
     font-weight: 500;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #8a8a88;
+    color: #8a8275;
     margin-bottom: 10px;
   }
 
   /* Row of boxes */
   .row {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     margin-bottom: 0;
     align-items: stretch;
-    flex-wrap: nowrap;
   }
 
   .box {
-    background: #ededeb;
-    border: 1.5px solid #c0c0be;
+    background: rgba(255,255,255,0.35);
+    border: 1.5px solid rgba(0,0,0,0.12);
     padding: 14px 8px;
     flex: 1;
     min-width: 0;
@@ -148,52 +101,36 @@
     font-size: 11px;
     font-weight: 500;
     line-height: 1.45;
-    color: #666;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.06);
-  }
-
-  .box-tag {
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #f0f0ee;
-    background: #555;
-    padding: 2px 6px;
-    margin-bottom: 6px;
-    display: inline-block;
+    color: #5a5445;
   }
 
   .box-accent {
-    background: #e0dac8;
-    border-color: #9a9080;
+    background: rgba(255,255,255,0.55);
+    border-color: rgba(0,0,0,0.2);
     border-width: 2px;
     font-weight: 600;
-    color: #2a2a2a;
-    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+    color: #2a2720;
   }
 
   .box-sub {
     font-size: 10px;
     font-weight: 400;
-    color: #888;
+    color: #8a8275;
     display: block;
     margin-top: 2px;
   }
 
   /* Prioritization bar */
   .priority-bar {
-    background: #e0dac8;
+    background: rgba(139,155,176,0.2);
     padding: 12px 24px;
-    color: #3a3832;
+    color: #3b3830;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.5px;
-    border: 2px solid #9a9080;
-    border-left: 4px solid #c4873b;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(139,155,176,0.35);
   }
 
   /* Connectors */
@@ -210,37 +147,35 @@
 
   /* Engineering outcomes tier */
   .box-eng {
-    border-color: #c0c0be;
-    color: #777;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+    color: #6b6558;
+    background: rgba(255,255,255,0.28);
+    border-color: rgba(0,0,0,0.09);
   }
 
   /* Central pillars tier */
   .box-central {
-    border-color: #d0d0ce;
-    color: #888;
-    background: #f3f3f1;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    color: #7a7568;
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(0,0,0,0.07);
   }
 
-  /* Distributed row dashed boxes — lightest */
+  /* Distributed row dashed boxes */
   .box-dashed {
     border-style: dashed;
-    border-color: #d8d8d6;
-    background: #f7f7f5;
-    color: #aaa;
-    box-shadow: none;
+    color: #8a8578;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(0,0,0,0.08);
   }
 
   /* Engineering outcomes */
   .outcomes-with-slo {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     align-items: stretch;
   }
   .outcomes-boxes {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     flex: 1;
     flex-wrap: wrap;
   }
@@ -249,13 +184,14 @@
   .feedback {
     margin-top: 20px;
     padding: 12px 20px;
-    background: #e5e0d0;
-    border: 1.5px solid #b0a898;
-    border-left: 4px solid #c4873b;
-    font-size: 11px;
-    color: #555;
+    background: rgba(139,155,176,0.12);
+    border: 1px solid rgba(139,155,176,0.25);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #5a5445;
     text-align: center;
     font-weight: 500;
+    letter-spacing: 0.3px;
   }
 
   /* Sub-row labels */
@@ -263,7 +199,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
     font-weight: 400;
-    color: #8a8a88;
+    color: #8a8275;
     margin-bottom: 6px;
     margin-top: 12px;
     padding-left: 2px;
@@ -273,103 +209,96 @@
   /* ===== PAGE 2 ===== */
   .header2 {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 44px;
   }
   .header2 h1 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: #2a2a2a;
+    color: #2a2720;
   }
 
-  /* ===== PAGE 2 STYLES ===== */
-
-  /* North star bar */
+  /* North star */
   .north-star {
-    background: #e0dac8;
-    border: 2px solid #9a9080;
-    border-left: 4px solid #c4873b;
-    padding: 14px 24px;
+    background: rgba(255,255,255,0.45);
+    border: 2px solid rgba(0,0,0,0.15);
+    padding: 16px 28px;
     margin-bottom: 0;
     text-align: center;
     font-size: 13px;
     line-height: 1.6;
-    color: #3a3832;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+    color: #3b3830;
   }
 
   /* Operating values row */
   .values-row {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     margin-bottom: 0;
   }
   .value-box {
-    background: #ededeb;
-    border: 2px solid #a0a09e;
+    background: rgba(255,255,255,0.35);
+    border: 1.5px solid rgba(0,0,0,0.12);
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
     text-align: center;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.06);
   }
   .value-box .value-title {
     font-size: 11px;
     font-weight: 600;
-    color: #2a2a2a;
+    color: #2a2720;
     margin-bottom: 3px;
   }
   .value-box .value-body {
     font-size: 10px;
-    color: #777;
+    color: #6b6558;
     line-height: 1.4;
   }
 
   /* Engine steps row */
   .engine-row {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     margin-bottom: 0;
   }
   .engine-box {
-    background: #f3f3f1;
-    border: 1.5px solid #c0c0be;
+    background: rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(0,0,0,0.08);
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
     text-align: center;
-    color: #666;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
   }
   .engine-box .engine-step-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
     font-weight: 500;
-    color: #999;
+    color: #8b9bb0;
     letter-spacing: 0.5px;
     margin-bottom: 4px;
   }
   .engine-box .engine-title {
     font-size: 11px;
     font-weight: 600;
-    color: #555;
+    color: #5a5445;
     margin-bottom: 3px;
   }
   .engine-box .engine-body {
     font-size: 10px;
-    color: #888;
+    color: #8a8275;
     line-height: 1.4;
   }
 
   /* Mechanisms row */
   .mechanisms-row {
     display: flex;
-    gap: 6px;
+    gap: 5px;
   }
   .mechanism-box {
-    background: #f7f7f5;
-    border: 1px solid #d0d0ce;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(0,0,0,0.06);
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
@@ -379,41 +308,40 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    color: #888;
+    color: #8a8275;
     margin-bottom: 3px;
     letter-spacing: 0.3px;
   }
   .mechanism-box .mechanism-body {
     font-size: 10px;
-    color: #aaa;
+    color: #9a9488;
     line-height: 1.4;
   }
 
-  /* Thesis reminder at bottom */
+  /* Thesis reminder */
   .thesis-reminder {
-    background: #e0dac8;
-    border: 1.5px solid #b0a898;
-    border-left: 4px solid #c4873b;
+    background: rgba(139,155,176,0.12);
+    border: 1px solid rgba(139,155,176,0.25);
     padding: 12px 20px;
     margin-top: 20px;
     text-align: center;
-    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
     font-weight: 500;
-    color: #555;
+    color: #5a5445;
+    letter-spacing: 0.3px;
   }
 
   @media print {
-    body { background: #f0f0ee; }
-    .page { box-shadow: none; margin: 0 auto; page-break-after: always; padding: 40px 30px; }
-    .page-break { display: none; }
+    body { background: #d8d0c0; background-image: none; }
+    .page { page-break-after: always; padding: 40px 30px; }
   }
 </style>
 </head>
 <body>
 
 <!-- ==================== PAGE 1: THE FRAMEWORK ==================== -->
-<div class="page"><div class="page-inner">
-  <div class="page-ref">RIF-01 / v2.0</div>
+<div class="page">
   <div class="header">
     <h1>Reliability Initiative Framework</h1>
     <div class="thesis">Reliability outcomes are product outcomes</div>
@@ -431,7 +359,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#3a3832" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#3a3832"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#5a5445" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#5a5445"/></svg>
   </div>
 
   <!-- Prioritization Bar -->
@@ -439,12 +367,12 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#999" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#999"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#8a8275" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#8a8275"/></svg>
   </div>
 
   <!-- Engineering Outcomes -->
   <div class="section-label">Engineering Outcomes: SLOs</div>
-  <div style="font-size: 10px; color: #999; margin-bottom: 8px; font-style: italic;">SLOs where we can quantify. Engagement signals where we can't.</div>
+  <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #8a8275; margin-bottom: 8px; font-style: italic; letter-spacing: 0.3px;">SLOs where we can quantify. Engagement signals where we can't.</div>
   <div class="outcomes-with-slo">
     <div class="outcomes-boxes">
       <div class="box box-eng">Developer Experience</div>
@@ -458,14 +386,12 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#ccc" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#ccc"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#b0a898" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#b0a898"/></svg>
   </div>
 
   <!-- Initiative Pillars -->
   <div class="section-label">Initiative Pillars</div>
   <div>
-
-      <!-- Central -->
       <div class="section-row-label">Central: Reliability Team Owns</div>
       <div class="row">
         <div class="box box-central">Incident Mgmt +<br>Observability</div>
@@ -477,7 +403,6 @@
         <div class="box box-central">Release<br>Safety</div>
       </div>
 
-      <!-- Distributed -->
       <div class="section-row-label">Distributed: Embedded in Product Teams</div>
       <div class="row">
         <div class="box box-dashed">Incident<br>Response</div>
@@ -488,22 +413,17 @@
         <div class="box box-dashed">Automated<br>Workflows</div>
         <div class="box box-dashed">Application<br>Runbooks</div>
       </div>
-
   </div>
 
   <!-- Feedback loop -->
   <div class="feedback">
     Flywheels: Operational Learnings Inform Direction<br>
-    <em style="font-weight: 400; font-size: 10px; color: #9b9484;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
+    <span style="font-weight: 400; color: #8a8275;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</span>
   </div>
-</div></div>
-
-<!-- ==================== PAGE BREAK ==================== -->
-<div class="page-break"></div>
+</div>
 
 <!-- ==================== PAGE 2: OPERATING STRATEGY ==================== -->
-<div class="page"><div class="page-inner">
-  <div class="page-ref">RIF-02 / v2.0</div>
+<div class="page">
   <div class="header2">
     <h1>Operating Strategy for a Reliability Org</h1>
   </div>
@@ -516,7 +436,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#3a3832" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#3a3832"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#5a5445" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#5a5445"/></svg>
   </div>
 
   <!-- Operating Values -->
@@ -542,7 +462,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#999" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#999"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#8a8275" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#8a8275"/></svg>
   </div>
 
   <!-- Prioritization Engine -->
@@ -572,7 +492,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#ccc" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#ccc"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#b0a898" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#b0a898"/></svg>
   </div>
 
   <!-- Operational Mechanisms -->
@@ -600,7 +520,7 @@
   <div class="thesis-reminder">
     Reliability outcomes are product outcomes
   </div>
-</div></div>
+</div>
 
 </body>
 </html>
