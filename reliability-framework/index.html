@@ -220,47 +220,66 @@
     color: #f2f1ef;
   }
 
-  /* Operating values row */
-  .values-row {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 0;
-  }
-  .value-box {
-    background: rgba(200,195,180,0.6);
+  /* Combined values + engine wrapper */
+  .decision-frame {
+    background: rgba(200,195,180,0.5);
     border: 2px solid #4a4840;
-    padding: 14px 10px;
-    flex: 1;
+    padding: 18px;
+  }
+  .decision-frame .frame-sublabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #8a8275;
+    margin-bottom: 8px;
+  }
+  .decision-frame .frame-sublabel + .frame-sublabel {
+    margin-top: 16px;
+  }
+
+  /* Values items — wrap naturally */
+  .values-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .value-item {
+    background: rgba(255,255,255,0.35);
+    border: 1.5px solid #7a7568;
+    padding: 10px 12px;
+    flex: 1 1 200px;
     min-width: 0;
     text-align: center;
   }
-  .value-box .value-title {
+  .value-item .value-title {
     font-size: 11px;
     font-weight: 600;
     color: #2a2720;
     margin-bottom: 3px;
   }
-  .value-box .value-body {
+  .value-item .value-body {
     font-size: 10px;
     color: #5a5445;
     line-height: 1.4;
   }
 
-  /* Engine steps row */
-  .engine-row {
+  /* Engine items — wrap naturally */
+  .engine-wrap {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
-    margin-bottom: 0;
   }
-  .engine-box {
-    background: rgba(210,205,192,0.5);
-    border: 1.5px solid #7a7568;
-    padding: 14px 10px;
-    flex: 1;
+  .engine-item {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid #9a9488;
+    padding: 10px 12px;
+    flex: 1 1 200px;
     min-width: 0;
     text-align: center;
   }
-  .engine-box .engine-step-num {
+  .engine-item .engine-step-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
     font-weight: 500;
@@ -268,13 +287,13 @@
     letter-spacing: 0.5px;
     margin-bottom: 4px;
   }
-  .engine-box .engine-title {
+  .engine-item .engine-title {
     font-size: 11px;
     font-weight: 600;
     color: #4a4840;
     margin-bottom: 3px;
   }
-  .engine-box .engine-body {
+  .engine-item .engine-body {
     font-size: 10px;
     color: #6b6558;
     line-height: 1.4;
@@ -448,57 +467,51 @@
     </svg>
   </div>
 
-  <!-- Operating Values -->
-  <div class="section-label">Operating Values: The Constraints</div>
-  <div class="values-row">
-    <div class="value-box">
-      <div class="value-title">Trace to a business outcome</div>
-      <div class="value-body">If you can't draw the line, question the work.</div>
+  <!-- Decision Framework: Values + Engine -->
+  <div class="section-label">How We Decide</div>
+  <div class="decision-frame">
+    <div class="frame-sublabel">Guiding Values</div>
+    <div class="values-wrap">
+      <div class="value-item">
+        <div class="value-title">Trace to a business outcome</div>
+        <div class="value-body">If you can't draw the line, question the work.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Know the who</div>
+        <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Collective action</div>
+        <div class="value-body">Choose actions for collective success. Build the observability to recognize and reward this.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Shared ownership</div>
+        <div class="value-body">Application and reliability teams are jointly accountable for org-level reliability outcomes.</div>
+      </div>
     </div>
-    <div class="value-box">
-      <div class="value-title">Know the who</div>
-      <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
-    </div>
-    <div class="value-box">
-      <div class="value-title">Collective action</div>
-      <div class="value-body">Choose actions for collective success. Build the observability to recognize and reward this.</div>
-    </div>
-    <div class="value-box">
-      <div class="value-title">Shared ownership</div>
-      <div class="value-body">Application and reliability teams are jointly accountable for org-level reliability outcomes.</div>
-    </div>
-  </div>
 
-  <!-- Arrow -->
-  <div class="arrow-down">
-    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
-      <line x1="12" y1="0" x2="12" y2="24" stroke="#3b3830" stroke-width="3"/>
-      <polygon points="4,22 12,32 20,22" fill="#3b3830"/>
-    </svg>
-  </div>
-
-  <!-- Prioritization Engine -->
-  <div class="section-label">Prioritization Engine: How We Decide</div>
-  <div class="engine-row">
-    <div class="engine-box">
-      <div class="engine-step-num">01</div>
-      <div class="engine-title">Rank by business criticality</div>
-      <div class="engine-body">Existential, critical, important</div>
-    </div>
-    <div class="engine-box">
-      <div class="engine-step-num">02</div>
-      <div class="engine-title">Evaluate within tiers</div>
-      <div class="engine-body">Impact:effort ratio. Weight foundational work.</div>
-    </div>
-    <div class="engine-box">
-      <div class="engine-step-num">03</div>
-      <div class="engine-title">Account for time sensitivity</div>
-      <div class="engine-body">Hard deadlines override pure impact:effort.</div>
-    </div>
-    <div class="engine-box">
-      <div class="engine-step-num">04</div>
-      <div class="engine-title">Manage uncertainty</div>
-      <div class="engine-body">YOLO is still YOLO. Timebox a spike first.</div>
+    <div class="frame-sublabel">Prioritization Engine</div>
+    <div class="engine-wrap">
+      <div class="engine-item">
+        <div class="engine-step-num">01</div>
+        <div class="engine-title">Rank by business criticality</div>
+        <div class="engine-body">Existential, critical, important</div>
+      </div>
+      <div class="engine-item">
+        <div class="engine-step-num">02</div>
+        <div class="engine-title">Evaluate within tiers</div>
+        <div class="engine-body">Impact:effort ratio. Weight foundational work.</div>
+      </div>
+      <div class="engine-item">
+        <div class="engine-step-num">03</div>
+        <div class="engine-title">Account for time sensitivity</div>
+        <div class="engine-body">Hard deadlines override pure impact:effort.</div>
+      </div>
+      <div class="engine-item">
+        <div class="engine-step-num">04</div>
+        <div class="engine-title">Manage uncertainty</div>
+        <div class="engine-body">YOLO is still YOLO. Timebox a spike first.</div>
+      </div>
     </div>
   </div>
 
