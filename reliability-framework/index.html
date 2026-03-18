@@ -11,24 +11,7 @@
 
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    /* Warm concrete base with streaky texture */
     background-color: #d8d2c4;
-    background-image:
-      /* faint grid */
-      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px),
-      /* vertical rain streaks */
-      repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent 40px,
-        rgba(120,110,95,0.03) 40px,
-        rgba(120,110,95,0.06) 42px,
-        transparent 44px
-      ),
-      /* subtle noise-like grain via radial dots */
-      radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 24px 24px, 24px 24px, 100% 100%, 4px 4px;
     color: #3b3830;
     -webkit-font-smoothing: antialiased;
   }
@@ -41,7 +24,7 @@
   }
 
   .page + .page {
-    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 40px;
   }
 
   /* Header */
@@ -52,8 +35,7 @@
   .header h1 {
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: -0.3px;
     margin-bottom: 10px;
     color: #2a2720;
   }
@@ -77,6 +59,10 @@
     text-transform: uppercase;
     color: #8a8275;
     margin-bottom: 10px;
+    margin-top: 28px;
+  }
+  .section-label:first-child {
+    margin-top: 0;
   }
 
   /* Row of boxes */
@@ -133,17 +119,6 @@
     border: 1.5px solid rgba(139,155,176,0.35);
   }
 
-  /* Connectors */
-  .arrow-row {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    height: 28px;
-  }
-  .arrow-row svg {
-    display: block;
-  }
 
   /* Engineering outcomes tier */
   .box-eng {
@@ -214,8 +189,7 @@
   .header2 h1 {
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: -0.3px;
     color: #2a2720;
   }
 
@@ -357,18 +331,10 @@
     <div class="box box-accent">New Capabilities</div>
   </div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#5a5445" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#5a5445"/></svg>
-  </div>
 
   <!-- Prioritization Bar -->
   <div class="priority-bar">Prioritization Engine: OKRs</div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#8a8275" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#8a8275"/></svg>
-  </div>
 
   <!-- Engineering Outcomes -->
   <div class="section-label">Engineering Outcomes: SLOs</div>
@@ -384,10 +350,6 @@
     </div>
   </div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#b0a898" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#b0a898"/></svg>
-  </div>
 
   <!-- Initiative Pillars -->
   <div class="section-label">Initiative Pillars</div>
@@ -434,10 +396,6 @@
     Enable sustained engineering velocity through reliability initiatives that span infrastructure, developer tooling, process, partnerships, education and automation.
   </div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#5a5445" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#5a5445"/></svg>
-  </div>
 
   <!-- Operating Values -->
   <div class="section-label">Operating Values: The Constraints</div>
@@ -460,10 +418,6 @@
     </div>
   </div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#8a8275" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#8a8275"/></svg>
-  </div>
 
   <!-- Prioritization Engine -->
   <div class="section-label">Prioritization Engine: How We Decide</div>
@@ -490,10 +444,6 @@
     </div>
   </div>
 
-  <!-- Arrow -->
-  <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#b0a898" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#b0a898"/></svg>
-  </div>
 
   <!-- Operational Mechanisms -->
   <div class="section-label">Operational Mechanisms</div>
