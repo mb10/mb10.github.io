@@ -283,191 +283,123 @@
     color: #2a2a2a;
   }
 
-  /* North star */
+  /* ===== PAGE 2 STYLES ===== */
+
+  /* North star bar */
   .north-star {
+    background: #e0dac8;
+    border: 2px solid #9a9080;
+    border-left: 4px solid #c4873b;
+    padding: 14px 24px;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #3a3832;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+  }
+
+  /* Operating values row */
+  .values-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+  .value-box {
     background: #ededeb;
     border: 2px solid #a0a09e;
-    padding: 20px 28px;
-    margin-bottom: 28px;
+    padding: 14px 10px;
+    flex: 1;
+    min-width: 0;
     text-align: center;
     box-shadow: 0 2px 0 rgba(0,0,0,0.06);
   }
-  .north-star .label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #8a8a88;
-    margin-bottom: 6px;
-  }
-  .north-star p {
-    font-size: 13px;
-    line-height: 1.6;
-    color: #333;
-  }
-
-  /* Values wrapper (outer container) */
-  .values-wrapper {
-    border: 2.5px solid #888;
-    padding: 24px;
-    margin-bottom: 24px;
-    position: relative;
-    background: #e8e8e6;
-  }
-  .values-wrapper-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #8a8a88;
-    margin-bottom: 16px;
-  }
-  .values-wrapper-title {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    margin-bottom: 2px;
-    color: #2a2a2a;
-  }
-  .values-wrapper-subtitle {
+  .value-box .value-title {
     font-size: 11px;
-    color: #8a8a88;
-    margin-bottom: 16px;
-  }
-
-  /* Values grid: 2 columns */
-  .values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  /* Divider between values and engine */
-  .values-divider {
-    border: none;
-    border-top: 1px solid #b0b0ae;
-    margin: 0 0 20px 0;
-  }
-
-  /* Prioritization engine card (below values) */
-  .pri-card {
-    background: #f0f0ee;
-    border: 2px solid #b0b0ae;
-    padding: 24px;
-  }
-  .pri-card-header {
-    margin-bottom: 16px;
-  }
-  .pri-card-header h2 {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.2px;
-    margin-bottom: 2px;
-  }
-  .pri-card-header .subtitle {
-    font-size: 11px;
-    color: #8a8a88;
-  }
-  .pri-card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 24px;
-  }
-
-  /* Prioritization steps */
-  .pri-step {
-    margin-bottom: 16px;
-  }
-  .pri-step .step-title {
-    font-size: 12px;
     font-weight: 600;
+    color: #2a2a2a;
     margin-bottom: 3px;
-    color: #2a2a2a;
   }
-  .pri-step .step-body {
-    font-size: 11px;
-    color: #666;
-    line-height: 1.6;
-    padding-left: 6px;
+  .value-box .value-body {
+    font-size: 10px;
+    color: #777;
+    line-height: 1.4;
   }
 
-  /* Value cards */
-  .value-item {
-    padding: 12px 14px;
-    margin-bottom: 6px;
-    border-left: 3px solid #c4873b;
-  }
-  .value-item:nth-child(odd) {
-    background: #e8e8e6;
-  }
-  .value-item:nth-child(even) {
-    background: #f0f0ee;
-  }
-  .value-item .value-title {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 2px;
-    color: #2a2a2a;
-  }
-  .value-item .value-body {
-    font-size: 11px;
-    color: #666;
-    line-height: 1.5;
-  }
-
-  /* Relationship box */
-  .relationship {
-    background: #e0dac8;
-    color: #3a3832;
-    border: 2px solid #9a9080;
-    border-left: 4px solid #c4873b;
-    padding: 20px 24px;
-    text-align: center;
-  }
-  .relationship h3 {
-    font-size: 13px;
-    font-weight: 600;
-    color: #2a2a2a;
-    margin-bottom: 6px;
-    letter-spacing: 0.2px;
-  }
-  .relationship p {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #555;
-  }
-  .relationship strong {
-    color: #2a2a2a;
-  }
-
-  /* Practices row */
-  .practices-row {
+  /* Engine steps row */
+  .engine-row {
     display: flex;
     gap: 6px;
-    margin-top: 12px;
+    margin-bottom: 0;
   }
-  .practice-box {
+  .engine-box {
+    background: #f3f3f1;
+    border: 1.5px solid #c0c0be;
+    padding: 14px 10px;
     flex: 1;
-    background: #ebebea;
-    border: 1.5px solid #b0b0ae;
-    padding: 14px 12px;
+    min-width: 0;
+    text-align: center;
+    color: #666;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+  }
+  .engine-box .engine-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    color: #999;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .engine-box .engine-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 3px;
+  }
+  .engine-box .engine-body {
+    font-size: 10px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  /* Mechanisms row */
+  .mechanisms-row {
+    display: flex;
+    gap: 6px;
+  }
+  .mechanism-box {
+    background: #f7f7f5;
+    border: 1px solid #d0d0ce;
+    padding: 14px 10px;
+    flex: 1;
+    min-width: 0;
     text-align: center;
   }
-  .practice-box .practice-title {
+  .mechanism-box .mechanism-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    color: #333;
-    margin-bottom: 4px;
+    color: #888;
+    margin-bottom: 3px;
     letter-spacing: 0.3px;
   }
-  .practice-box .practice-body {
+  .mechanism-box .mechanism-body {
     font-size: 10px;
-    color: #888;
-    line-height: 1.45;
+    color: #aaa;
+    line-height: 1.4;
+  }
+
+  /* Thesis reminder at bottom */
+  .thesis-reminder {
+    background: #e0dac8;
+    border: 1.5px solid #b0a898;
+    border-left: 4px solid #c4873b;
+    padding: 12px 20px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #555;
   }
 
   @media print {
@@ -577,85 +509,96 @@
   </div>
 
   <!-- North Star -->
+  <div class="section-label">North Star</div>
   <div class="north-star">
-    <div class="label">North Star</div>
-    <p>Enable sustained engineering velocity through immediate and long term reliability initiatives that span infrastructure, developer tooling &amp; enablement, process, partnerships across domains, education and automation.</p>
+    Enable sustained engineering velocity through reliability initiatives that span infrastructure, developer tooling, process, partnerships, education and automation.
   </div>
 
-  <!-- Operating Values wrapping Prioritization Engine -->
-  <div class="values-wrapper">
-    <div class="values-wrapper-label">Operating Values</div>
-    <div class="values-wrapper-title">Prioritization operates within these constraints</div>
-    <div class="values-wrapper-subtitle">The values are the guardrails. They prevent prioritization from going off the rails.</div>
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#3a3832" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#3a3832"/></svg>
+  </div>
 
-    <!-- Values: 2-column grid -->
-    <div class="values-grid">
-      <div class="value-item">
-        <div class="value-title">Every initiative traces to a business outcome</div>
-        <div class="value-body">If you can't draw the line, question the work.</div>
-      </div>
-      <div class="value-item">
-        <div class="value-title">Know the who</div>
-        <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
-      </div>
-      <div class="value-item">
-        <div class="value-title">Collective action</div>
-        <div class="value-body">We choose actions for collective success and build the organizational observability to recognize and reward this.</div>
-      </div>
-      <div class="value-item">
-        <div class="value-title">Shared ownership</div>
-        <div class="value-body">Application and reliability teams are jointly accountable for and rewarded for org-level reliability outcomes.</div>
-      </div>
+  <!-- Operating Values -->
+  <div class="section-label">Operating Values: The Constraints</div>
+  <div class="values-row">
+    <div class="value-box">
+      <div class="value-title">Trace to a business outcome</div>
+      <div class="value-body">If you can't draw the line, question the work.</div>
     </div>
-
-    <hr class="values-divider">
-
-    <!-- Prioritization Engine: nested below -->
-    <div class="pri-card">
-      <div class="pri-card-header">
-        <h2>Prioritization Engine</h2>
-        <div class="subtitle">How we decide what to work on</div>
-      </div>
-      <div class="pri-card-grid">
-        <div class="pri-step">
-          <div class="step-title">1. Rank by business criticality</div>
-          <div class="step-body">Leadership ranks business outcomes: existential, critical, important</div>
-        </div>
-        <div class="pri-step">
-          <div class="step-title">2. Evaluate within tiers</div>
-          <div class="step-body">Assess impact:effort ratio. Weight foundational work that unblocks other initiatives.</div>
-        </div>
-        <div class="pri-step">
-          <div class="step-title">3. Account for time sensitivity</div>
-          <div class="step-body">Hard deadlines override pure impact:effort.</div>
-        </div>
-        <div class="pri-step">
-          <div class="step-title">4. Manage uncertainty deliberately</div>
-          <div class="step-body">YOLO is still YOLO, even on reliability. Timebox a spike before committing full resources.</div>
-        </div>
-      </div>
+    <div class="value-box">
+      <div class="value-title">Know the who</div>
+      <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
     </div>
+    <div class="value-box">
+      <div class="value-title">Collective action</div>
+      <div class="value-body">Choose actions for collective success. Build the observability to recognize and reward this.</div>
+    </div>
+    <div class="value-box">
+      <div class="value-title">Shared ownership</div>
+      <div class="value-body">Application and reliability teams are jointly accountable for org-level reliability outcomes.</div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#999" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#999"/></svg>
+  </div>
+
+  <!-- Prioritization Engine -->
+  <div class="section-label">Prioritization Engine: How We Decide</div>
+  <div class="engine-row">
+    <div class="engine-box">
+      <div class="engine-step-num">01</div>
+      <div class="engine-title">Rank by business criticality</div>
+      <div class="engine-body">Existential, critical, important</div>
+    </div>
+    <div class="engine-box">
+      <div class="engine-step-num">02</div>
+      <div class="engine-title">Evaluate within tiers</div>
+      <div class="engine-body">Impact:effort ratio. Weight foundational work.</div>
+    </div>
+    <div class="engine-box">
+      <div class="engine-step-num">03</div>
+      <div class="engine-title">Account for time sensitivity</div>
+      <div class="engine-body">Hard deadlines override pure impact:effort.</div>
+    </div>
+    <div class="engine-box">
+      <div class="engine-step-num">04</div>
+      <div class="engine-title">Manage uncertainty</div>
+      <div class="engine-body">YOLO is still YOLO. Timebox a spike first.</div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row">
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#ccc" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#ccc"/></svg>
   </div>
 
   <!-- Operational Mechanisms -->
-  <div class="section-label" style="margin-top: 28px;">Operational Mechanisms</div>
-  <div class="practices-row">
-    <div class="practice-box">
-      <div class="practice-title">SLOs</div>
-      <div class="practice-body">Linked to business outcomes. The contract between reliability and the business.</div>
+  <div class="section-label">Operational Mechanisms</div>
+  <div class="mechanisms-row">
+    <div class="mechanism-box">
+      <div class="mechanism-title">SLOs</div>
+      <div class="mechanism-body">The contract between reliability and the business.</div>
     </div>
-    <div class="practice-box">
-      <div class="practice-title">Capacity Planning</div>
-      <div class="practice-body">Without it, strategy is aspiration. Ensures initiatives are resourced to succeed.</div>
+    <div class="mechanism-box">
+      <div class="mechanism-title">Capacity Planning</div>
+      <div class="mechanism-body">Without it, strategy is aspiration.</div>
     </div>
-    <div class="practice-box">
-      <div class="practice-title">Strategic Roadmap</div>
-      <div class="practice-body">Living artifact. Output of the prioritization engine, reviewed and evolved continuously.</div>
+    <div class="mechanism-box">
+      <div class="mechanism-title">Strategic Roadmap</div>
+      <div class="mechanism-body">Living artifact. Reviewed and evolved continuously.</div>
     </div>
-    <div class="practice-box">
-      <div class="practice-title">Cross-functional Planning</div>
-      <div class="practice-body">Reliability outcomes require partnership. Planning happens with product, infra, and security.</div>
+    <div class="mechanism-box">
+      <div class="mechanism-title">Cross-functional Planning</div>
+      <div class="mechanism-body">Planning happens with product, infra, and security.</div>
     </div>
+  </div>
+
+  <!-- Thesis reminder -->
+  <div class="thesis-reminder">
+    Reliability outcomes are product outcomes
   </div>
 </div></div>
 
