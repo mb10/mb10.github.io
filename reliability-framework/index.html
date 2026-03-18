@@ -101,13 +101,14 @@
   }
   .header .thesis {
     display: inline-block;
-    background: #3a3832;
-    color: #f0ece4;
+    background: #f0ece4;
+    color: #3a3832;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
     padding: 6px 16px;
     letter-spacing: 0.3px;
+    border: 2px solid #3a3832;
   }
 
   /* Section labels */
@@ -132,7 +133,7 @@
 
   .box {
     background: #fff;
-    border: 2px solid #c0c0c0;
+    border: 1.5px solid #ccc;
     padding: 14px 8px;
     flex: 1;
     min-width: 0;
@@ -144,7 +145,7 @@
     font-size: 11px;
     font-weight: 500;
     line-height: 1.45;
-    color: #222;
+    color: #555;
   }
 
   .box-tag {
@@ -160,10 +161,11 @@
   }
 
   .box-accent {
-    background: #fff;
-    border-color: #000;
+    background: #f0ece4;
+    border-color: #3a3832;
     border-width: 2.5px;
     font-weight: 600;
+    color: #1a1a1a;
   }
 
   .box-sub {
@@ -176,15 +178,16 @@
 
   /* Prioritization bar */
   .priority-bar {
-    background: #3a3832;
+    background: #e8e3d9;
     padding: 12px 24px;
-    color: #f0ece4;
+    color: #3a3832;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.5px;
-    border-top: 2px solid #c0392b;
+    border: 2px solid #3a3832;
+    border-top: 3px solid #c0392b;
   }
 
   /* Connectors */
@@ -199,11 +202,24 @@
     display: block;
   }
 
-  /* Distributed row dashed boxes */
+  /* Engineering outcomes tier */
+  .box-eng {
+    border-color: #bbb;
+    color: #666;
+  }
+
+  /* Central pillars tier */
+  .box-central {
+    border-color: #ccc;
+    color: #777;
+  }
+
+  /* Distributed row dashed boxes — lightest */
   .box-dashed {
     border-style: dashed;
-    border-color: #999;
-    background: #fafafa;
+    border-color: #ddd;
+    background: #fdfdfd;
+    color: #999;
   }
 
   /* Engineering outcomes */
@@ -223,10 +239,10 @@
   .feedback {
     margin-top: 20px;
     padding: 12px 20px;
-    background: #fafafa;
-    border: 2px solid #c0c0c0;
+    background: #f7f4ee;
+    border: 1.5px solid #c0b9a8;
     font-size: 11px;
-    color: #000;
+    color: #6b6454;
     text-align: center;
     font-weight: 500;
   }
@@ -385,25 +401,26 @@
 
   /* Relationship box */
   .relationship {
-    background: #3a3832;
-    color: #f0ece4;
+    background: #f0ece4;
+    color: #3a3832;
+    border: 2px solid #3a3832;
     padding: 20px 24px;
     text-align: center;
   }
   .relationship h3 {
     font-size: 13px;
     font-weight: 600;
-    color: #f0ece4;
+    color: #3a3832;
     margin-bottom: 6px;
     letter-spacing: 0.2px;
   }
   .relationship p {
     font-size: 12px;
     line-height: 1.6;
-    color: rgba(240,236,228,0.8);
+    color: #5a564c;
   }
   .relationship strong {
-    color: #f0ece4;
+    color: #3a3832;
   }
 
   /* Practices row */
@@ -462,7 +479,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#3a3832" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#3a3832"/></svg>
   </div>
 
   <!-- Prioritization Bar -->
@@ -470,7 +487,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#999" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#999"/></svg>
   </div>
 
   <!-- Engineering Outcomes -->
@@ -478,18 +495,18 @@
   <div style="font-size: 10px; color: #999; margin-bottom: 8px; font-style: italic;">SLOs where we can quantify. Engagement signals where we can't.</div>
   <div class="outcomes-with-slo">
     <div class="outcomes-boxes">
-      <div class="box">Developer Experience</div>
-      <div class="box">Developer Engagement &amp; Satisfaction</div>
-      <div class="box">Feature Velocity</div>
-      <div class="box">Uptime</div>
-      <div class="box">Performance</div>
-      <div class="box">Security / Safety</div>
+      <div class="box box-eng">Developer Experience</div>
+      <div class="box box-eng">Developer Engagement &amp; Satisfaction</div>
+      <div class="box box-eng">Feature Velocity</div>
+      <div class="box box-eng">Uptime</div>
+      <div class="box box-eng">Performance</div>
+      <div class="box box-eng">Security / Safety</div>
     </div>
   </div>
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#ccc" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#ccc"/></svg>
   </div>
 
   <!-- Initiative Pillars -->
@@ -499,13 +516,13 @@
       <!-- Central -->
       <div class="section-row-label">Central: Reliability Team Owns</div>
       <div class="row">
-        <div class="box">Incident Mgmt +<br>Observability</div>
-        <div class="box">Testing +<br>Simulation</div>
-        <div class="box">Education &amp;<br>Documentation</div>
-        <div class="box">Observability<br>Infra &amp; Tooling</div>
-        <div class="box">Security &amp;<br>Guardrails</div>
-        <div class="box">Automation &amp;<br>Agentic AI</div>
-        <div class="box">Release<br>Safety</div>
+        <div class="box box-central">Incident Mgmt +<br>Observability</div>
+        <div class="box box-central">Testing +<br>Simulation</div>
+        <div class="box box-central">Education &amp;<br>Documentation</div>
+        <div class="box box-central">Observability<br>Infra &amp; Tooling</div>
+        <div class="box box-central">Security &amp;<br>Guardrails</div>
+        <div class="box box-central">Automation &amp;<br>Agentic AI</div>
+        <div class="box box-central">Release<br>Safety</div>
       </div>
 
       <!-- Distributed -->
@@ -525,7 +542,7 @@
   <!-- Feedback loop -->
   <div class="feedback">
     Flywheels: Operational Learnings Inform Direction<br>
-    <em style="font-weight: 400; font-size: 10px; color: #888;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
+    <em style="font-weight: 400; font-size: 10px; color: #9b9484;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
   </div>
 </div></div>
 
