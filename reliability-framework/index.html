@@ -11,7 +11,9 @@
 
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background-color: #c5c5c3;
+    background-color: #e8e5e0;
+    background-image: radial-gradient(circle, #b8b5b0 0.8px, transparent 0.8px);
+    background-size: 20px 20px;
     color: #3b3830;
     -webkit-font-smoothing: antialiased;
   }
@@ -65,6 +67,16 @@
     margin-top: 0;
   }
 
+  /* Arrows between sections */
+  .arrow-down {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .arrow-down svg {
+    display: block;
+  }
+
   /* Row of boxes */
   .row {
     display: flex;
@@ -74,8 +86,8 @@
   }
 
   .box {
-    background: rgba(255,255,255,0.35);
-    border: 1.5px solid rgba(0,0,0,0.12);
+    background: #d8d2c4;
+    border: 2px solid #3b3830;
     padding: 14px 8px;
     flex: 1;
     min-width: 0;
@@ -87,28 +99,30 @@
     font-size: 11px;
     font-weight: 500;
     line-height: 1.45;
-    color: #5a5445;
+    color: #3b3830;
+    position: relative;
+    box-shadow: 6px 6px 0 #3b3830;
   }
 
   .box-accent {
-    background: rgba(255,255,255,0.55);
-    border-color: rgba(0,0,0,0.2);
-    border-width: 2px;
+    background: #cdc6b4;
+    border-width: 2.5px;
     font-weight: 600;
     color: #2a2720;
+    box-shadow: 8px 8px 0 #2a2720;
   }
 
   .box-sub {
     font-size: 10px;
     font-weight: 400;
-    color: #8a8275;
+    color: #6b6558;
     display: block;
     margin-top: 2px;
   }
 
   /* Prioritization bar */
   .priority-bar {
-    background: rgba(139,155,176,0.2);
+    background: #d8d2c4;
     padding: 12px 24px;
     color: #3b3830;
     font-family: 'JetBrains Mono', monospace;
@@ -116,30 +130,36 @@
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.5px;
-    border: 1.5px solid rgba(139,155,176,0.35);
+    border: 2px solid #3b3830;
+    box-shadow: 6px 6px 0 #3b3830;
   }
 
 
   /* Engineering outcomes tier */
   .box-eng {
-    color: #4a4a48;
-    background: rgba(255,255,255,0.35);
-    border-color: rgba(0,0,0,0.12);
+    color: #3b3830;
+    background: #d8d2c4;
+    border-color: #3b3830;
+    box-shadow: 5px 5px 0 #4a4840;
   }
 
   /* Central pillars tier */
   .box-central {
     color: #4a4840;
-    background: rgba(255,255,255,0.28);
-    border-color: rgba(0,0,0,0.1);
+    background: #ddd8cc;
+    border-color: #6b6558;
+    border-width: 1.5px;
+    box-shadow: 4px 4px 0 #6b6558;
   }
 
   /* Distributed row dashed boxes */
   .box-dashed {
     border-style: dashed;
     color: #55524a;
-    background: rgba(255,255,255,0.18);
-    border-color: rgba(0,0,0,0.1);
+    background: #e0dbd0;
+    border-color: #8a8275;
+    border-width: 1.5px;
+    box-shadow: 3px 3px 0 #8a8275;
   }
 
   /* Engineering outcomes */
@@ -159,14 +179,15 @@
   .feedback {
     margin-top: 20px;
     padding: 12px 20px;
-    background: rgba(139,155,176,0.12);
-    border: 1px solid rgba(139,155,176,0.25);
+    background: #d8d2c4;
+    border: 1.5px solid #6b6558;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    color: #5a5445;
+    color: #3b3830;
     text-align: center;
     font-weight: 500;
     letter-spacing: 0.3px;
+    box-shadow: 4px 4px 0 #6b6558;
   }
 
   /* Sub-row labels */
@@ -195,14 +216,15 @@
 
   /* North star */
   .north-star {
-    background: rgba(255,255,255,0.45);
-    border: 2px solid rgba(0,0,0,0.15);
+    background: #cdc6b4;
+    border: 2.5px solid #2a2720;
     padding: 16px 28px;
     margin-bottom: 0;
     text-align: center;
     font-size: 13px;
     line-height: 1.6;
-    color: #3b3830;
+    color: #2a2720;
+    box-shadow: 8px 8px 0 #2a2720;
   }
 
   /* Operating values row */
@@ -212,12 +234,13 @@
     margin-bottom: 0;
   }
   .value-box {
-    background: rgba(255,255,255,0.35);
-    border: 1.5px solid rgba(0,0,0,0.12);
+    background: #d8d2c4;
+    border: 2px solid #3b3830;
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
     text-align: center;
+    box-shadow: 6px 6px 0 #3b3830;
   }
   .value-box .value-title {
     font-size: 11px;
@@ -227,7 +250,7 @@
   }
   .value-box .value-body {
     font-size: 10px;
-    color: #6b6558;
+    color: #5a5445;
     line-height: 1.4;
   }
 
@@ -238,12 +261,13 @@
     margin-bottom: 0;
   }
   .engine-box {
-    background: rgba(255,255,255,0.25);
-    border: 1.5px solid rgba(0,0,0,0.1);
+    background: #ddd8cc;
+    border: 1.5px solid #6b6558;
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
     text-align: center;
+    box-shadow: 4px 4px 0 #6b6558;
   }
   .engine-box .engine-step-num {
     font-family: 'JetBrains Mono', monospace;
@@ -271,43 +295,45 @@
     gap: 5px;
   }
   .mechanism-box {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(0,0,0,0.08);
+    background: #e0dbd0;
+    border: 1.5px solid #8a8275;
     padding: 14px 10px;
     flex: 1;
     min-width: 0;
     text-align: center;
+    box-shadow: 3px 3px 0 #8a8275;
   }
   .mechanism-box .mechanism-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    color: #5a5548;
+    color: #55524a;
     margin-bottom: 3px;
     letter-spacing: 0.3px;
   }
   .mechanism-box .mechanism-body {
     font-size: 10px;
-    color: #706b60;
+    color: #6b6558;
     line-height: 1.4;
   }
 
   /* Thesis reminder */
   .thesis-reminder {
-    background: rgba(139,155,176,0.12);
-    border: 1px solid rgba(139,155,176,0.25);
+    background: #d8d2c4;
+    border: 1.5px solid #6b6558;
     padding: 12px 20px;
     margin-top: 20px;
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    color: #5a5445;
+    color: #3b3830;
     letter-spacing: 0.3px;
+    box-shadow: 4px 4px 0 #6b6558;
   }
 
   @media print {
-    body { background: #d8d0c0; background-image: none; }
+    body { background: #e8e5e0; background-image: none; }
     .page { page-break-after: always; padding: 40px 30px; }
   }
 </style>
@@ -331,10 +357,24 @@
     <div class="box box-accent">New Capabilities</div>
   </div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#3b3830" stroke-width="3"/>
+      <polygon points="4,22 12,32 20,22" fill="#3b3830"/>
+    </svg>
+  </div>
 
   <!-- Prioritization Bar -->
   <div class="priority-bar">Prioritization Engine: OKRs</div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#3b3830" stroke-width="3"/>
+      <polygon points="4,22 12,32 20,22" fill="#3b3830"/>
+    </svg>
+  </div>
 
   <!-- Engineering Outcomes -->
   <div class="section-label">Engineering Outcomes: SLOs</div>
@@ -350,6 +390,13 @@
     </div>
   </div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#4a4840" stroke-width="2.5"/>
+      <polygon points="5,22 12,30 19,22" fill="#4a4840"/>
+    </svg>
+  </div>
 
   <!-- Initiative Pillars -->
   <div class="section-label">Initiative Pillars</div>
@@ -363,6 +410,14 @@
         <div class="box box-central">Security &amp;<br>Guardrails</div>
         <div class="box box-central">Automation &amp;<br>Agentic AI</div>
         <div class="box box-central">Release<br>Safety</div>
+      </div>
+
+      <!-- Arrow -->
+      <div class="arrow-down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <line x1="12" y1="0" x2="12" y2="18" stroke="#6b6558" stroke-width="2"/>
+          <polygon points="6,16 12,24 18,16" fill="#6b6558"/>
+        </svg>
       </div>
 
       <div class="section-row-label">Distributed: Embedded in Product Teams</div>
@@ -380,7 +435,7 @@
   <!-- Feedback loop -->
   <div class="feedback">
     Flywheels: Operational Learnings Inform Direction<br>
-    <span style="font-weight: 400; color: #8a8275;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</span>
+    <span style="font-weight: 400; color: #6b6558;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</span>
   </div>
 </div>
 
@@ -396,6 +451,13 @@
     Enable sustained engineering velocity through reliability initiatives that span infrastructure, developer tooling, process, partnerships, education and automation.
   </div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#3b3830" stroke-width="3"/>
+      <polygon points="4,22 12,32 20,22" fill="#3b3830"/>
+    </svg>
+  </div>
 
   <!-- Operating Values -->
   <div class="section-label">Operating Values: The Constraints</div>
@@ -418,6 +480,13 @@
     </div>
   </div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="32" viewBox="0 0 24 32" fill="none">
+      <line x1="12" y1="0" x2="12" y2="24" stroke="#3b3830" stroke-width="3"/>
+      <polygon points="4,22 12,32 20,22" fill="#3b3830"/>
+    </svg>
+  </div>
 
   <!-- Prioritization Engine -->
   <div class="section-label">Prioritization Engine: How We Decide</div>
@@ -444,6 +513,13 @@
     </div>
   </div>
 
+  <!-- Arrow -->
+  <div class="arrow-down">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <line x1="12" y1="0" x2="12" y2="18" stroke="#6b6558" stroke-width="2"/>
+      <polygon points="6,16 12,24 18,16" fill="#6b6558"/>
+    </svg>
+  </div>
 
   <!-- Operational Mechanisms -->
   <div class="section-label">Operational Mechanisms</div>
