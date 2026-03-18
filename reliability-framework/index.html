@@ -149,6 +149,16 @@
     border-width: 1.5px;
   }
 
+  /* Flywheel indicator — boxes that generate data */
+  .box-flywheel::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 3px;
+    background: #c4873b;
+    margin-top: 6px;
+  }
+
   /* Distributed row dashed boxes */
   .box-dashed {
     border-style: dashed;
@@ -464,10 +474,10 @@
   <div>
       <div class="section-row-label">Central: Reliability Team Owns</div>
       <div class="row">
-        <div class="box box-central">Incident Mgmt +<br>Observability</div>
-        <div class="box box-central">Testing +<br>Simulation</div>
+        <div class="box box-central box-flywheel">Incident Mgmt +<br>Observability</div>
+        <div class="box box-central box-flywheel">Testing +<br>Simulation</div>
         <div class="box box-central">Education &amp;<br>Documentation</div>
-        <div class="box box-central">Observability<br>Infra &amp; Tooling</div>
+        <div class="box box-central box-flywheel">Observability<br>Infra &amp; Tooling</div>
         <div class="box box-central">Security &amp;<br>Guardrails</div>
         <div class="box box-central">Automation &amp;<br>Agentic AI</div>
         <div class="box box-central">Release<br>Safety</div>
@@ -483,17 +493,20 @@
 
       <div class="section-row-label">Distributed: Embedded in Product Teams</div>
       <div class="row">
-        <div class="box box-dashed">Incident<br>Response</div>
-        <div class="box box-dashed">Incident<br>Resolution</div>
-        <div class="box box-dashed">Domain Testing<br>+ Sim</div>
+        <div class="box box-dashed box-flywheel">Incident<br>Response</div>
+        <div class="box box-dashed box-flywheel">Post-Incident<br>Learnings &amp; Actions</div>
+        <div class="box box-dashed box-flywheel">Domain Testing<br>+ Sim</div>
         <div class="box box-dashed">Runbooks, SDLC,<br>Best Practices</div>
-        <div class="box box-dashed">Domain-level<br>Observability</div>
+        <div class="box box-dashed box-flywheel">Domain-level<br>Observability</div>
         <div class="box box-dashed">Automated<br>Workflows</div>
         <div class="box box-dashed">Application<br>Runbooks</div>
       </div>
   </div>
 
   <!-- Feedback loop -->
+  <div style="margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #8a8275; display: flex; align-items: center; gap: 6px; padding-left: 2px;">
+    <span style="display: inline-block; width: 14px; height: 3px; background: #c4873b;"></span> Generates data that feeds flywheels
+  </div>
   <div class="feedback">
     Flywheels: Operational Learnings Inform Direction<br>
     <span style="font-weight: 600; color: #c8c5c0;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</span>
