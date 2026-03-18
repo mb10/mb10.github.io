@@ -11,68 +11,69 @@
 
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background: #fff;
+    background: #e8e8e8;
     color: #000;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ===== PAGE 1 ===== */
+  /* ===== FRAME (Figma-style canvas) ===== */
   .page {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 40px;
-    min-height: 100vh;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 56px 48px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);
   }
 
   .page-break {
-    border-top: 2px solid #e0e0e0;
+    border: none;
     margin: 0;
   }
 
   /* Header */
   .header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
   .header h1 {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
   }
   .header .thesis {
     display: inline-block;
     background: #000;
     color: #fff;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
-    padding: 8px 24px;
-    border-radius: 0;
-    margin-top: 8px;
+    padding: 6px 16px;
+    letter-spacing: 0.2px;
   }
 
   /* Section labels */
   .section-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #555;
-    margin-bottom: 12px;
+    color: #999;
+    margin-bottom: 10px;
   }
 
   /* Row of boxes */
   .row {
     display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 6px;
+    margin-bottom: 0;
     align-items: stretch;
     flex-wrap: nowrap;
   }
 
   .box {
-    background: white;
-    border: 1.5px solid #d4d4d4;
-    border-radius: 0;
-    padding: 12px 10px;
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    padding: 14px 8px;
     flex: 1;
     min-width: 0;
     display: flex;
@@ -80,37 +81,35 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 500;
-    line-height: 1.4;
-    transition: box-shadow 0.2s;
+    line-height: 1.45;
+    color: #222;
   }
 
   .box-tag {
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #fff;
     background: #000;
-    border-radius: 0;
-    padding: 2px 8px;
+    padding: 2px 6px;
     margin-bottom: 6px;
     display: inline-block;
-  }
-  .box:hover {
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
 
   .box-accent {
     background: #fff;
     border-color: #000;
+    border-width: 1.5px;
+    font-weight: 600;
   }
 
   .box-sub {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 400;
-    color: #666;
+    color: #888;
     display: block;
     margin-top: 2px;
   }
@@ -118,21 +117,21 @@
   /* Prioritization bar */
   .priority-bar {
     background: #000;
-    border-radius: 0;
-    padding: 14px 24px;
+    padding: 12px 24px;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 8px;
+    letter-spacing: 0.3px;
   }
 
-  /* Arrows between rows */
+  /* Connectors */
   .arrow-row {
     display: flex;
     justify-content: center;
-    padding: 6px 0;
-    margin-bottom: 4px;
+    padding: 0;
+    margin: 0;
+    height: 28px;
   }
   .arrow-row svg {
     display: block;
@@ -141,245 +140,201 @@
   /* Distributed row dashed boxes */
   .box-dashed {
     border-style: dashed;
-    border-color: #000;
-    background: #fff;
+    border-color: #999;
+    background: #fafafa;
   }
 
-  /* Execution model sidebar */
-  .execution-wrapper {
+  /* Engineering outcomes */
+  .outcomes-with-slo {
     display: flex;
-    gap: 16px;
-    margin-bottom: 8px;
+    gap: 6px;
+    align-items: stretch;
   }
-  .execution-label {
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #000;
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 0;
-    padding: 16px 8px;
+  .outcomes-boxes {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 36px;
-  }
-  .execution-content {
+    gap: 6px;
     flex: 1;
-  }
-
-  /* SLO badge */
-  .slo-badge {
-    background: #fff;
-    border: 2px solid #000;
-    border-radius: 0;
-    padding: 14px 20px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    color: #000;
-    min-width: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
   }
 
   /* Feedback loop */
   .feedback {
-    margin-top: 24px;
+    margin-top: 20px;
     padding: 12px 20px;
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 0;
-    font-size: 12px;
+    background: #fafafa;
+    border: 1px solid #c0c0c0;
+    font-size: 11px;
     color: #000;
     text-align: center;
     font-weight: 500;
   }
-  .feedback span {
-    font-size: 16px;
-    margin-right: 6px;
-  }
 
-  /* Engineering outcomes row with SLO */
-  .outcomes-with-slo {
-    display: flex;
-    gap: 12px;
-    align-items: stretch;
-    margin-bottom: 8px;
-  }
-  .outcomes-boxes {
-    display: flex;
-    gap: 12px;
-    flex: 1;
-    flex-wrap: wrap;
+  /* Sub-row labels */
+  .section-row-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: #999;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    padding-left: 2px;
+    letter-spacing: 0.3px;
   }
 
   /* ===== PAGE 2 ===== */
   .header2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
   .header2 h1 {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 12px;
+    letter-spacing: -0.3px;
   }
 
   /* North star */
   .north-star {
-    background: #fff;
-    border: 1.5px solid #000;
-    border-radius: 0;
+    background: #fafafa;
+    border: 1px solid #c0c0c0;
     padding: 20px 28px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     text-align: center;
   }
   .north-star .label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #000;
+    color: #999;
     margin-bottom: 6px;
   }
   .north-star p {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.6;
-    color: #000;
+    color: #333;
   }
 
   /* Two columns */
   .two-col {
     display: flex;
-    gap: 24px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
   .col-card {
     flex: 1;
-    background: white;
-    border: 1.5px solid #d4d4d4;
-    border-radius: 0;
-    padding: 28px;
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    padding: 24px;
     min-width: 0;
   }
 
   .col-card h2 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
-    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+    margin-bottom: 2px;
   }
   .col-card .subtitle {
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 16px;
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 14px;
   }
   .col-card hr {
     border: none;
-    border-top: 1px solid #eee;
-    margin-bottom: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 18px;
   }
 
   /* Prioritization steps */
   .pri-step {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .pri-step .step-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .pri-step .step-body {
-    font-size: 12px;
-    color: #555;
+    font-size: 11px;
+    color: #666;
     line-height: 1.6;
-    padding-left: 8px;
+    padding-left: 6px;
   }
 
   /* Value cards */
   .value-item {
-    padding: 14px 16px;
-    border-radius: 0;
-    margin-bottom: 10px;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+    border-left: 2px solid #000;
   }
   .value-item:nth-child(odd) {
-    background: #f5f5f5;
+    background: #fafafa;
   }
   .value-item:nth-child(even) {
     background: #fff;
   }
   .value-item .value-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .value-item .value-body {
-    font-size: 12px;
-    color: #555;
+    font-size: 11px;
+    color: #666;
     line-height: 1.5;
   }
 
   /* Relationship box */
   .relationship {
-    background: #f5f5f5;
-    border: 1.5px solid #000;
-    border-radius: 0;
-    padding: 24px;
+    background: #000;
+    color: #fff;
+    padding: 20px 24px;
     text-align: center;
   }
   .relationship h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
   }
   .relationship p {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.6;
-    color: #000;
+    color: rgba(255,255,255,0.85);
+  }
+  .relationship strong {
+    color: #fff;
   }
 
-  /* Key practices row */
+  /* Practices row */
   .practices-row {
     display: flex;
-    gap: 12px;
-    margin-top: 32px;
+    gap: 6px;
+    margin-top: 12px;
   }
   .practice-box {
     flex: 1;
-    background: #f5f5f5;
-    border: 1.5px solid #000;
-    border-radius: 0;
-    padding: 16px;
+    background: #fafafa;
+    border: 1px solid #c0c0c0;
+    padding: 14px 12px;
     text-align: center;
   }
   .practice-box .practice-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: #000;
     margin-bottom: 4px;
   }
   .practice-box .practice-body {
-    font-size: 11px;
-    color: #666;
-    line-height: 1.4;
-  }
-
-  .section-row-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 6px;
-    padding-left: 4px;
+    font-size: 10px;
+    color: #888;
+    line-height: 1.45;
   }
 
   @media print {
-    .page { page-break-after: always; padding: 40px 30px; }
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0 auto; page-break-after: always; padding: 40px 30px; }
     .page-break { display: none; }
   }
 </style>
@@ -405,7 +360,7 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
   </div>
 
   <!-- Prioritization Bar -->
@@ -413,12 +368,12 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
   </div>
 
   <!-- Engineering Outcomes -->
   <div class="section-label">Engineering Outcomes: SLOs</div>
-  <div style="font-size: 11px; color: #555; margin-bottom: 8px; font-style: italic;">SLOs where we can quantify. Engagement signals where we can't.</div>
+  <div style="font-size: 10px; color: #999; margin-bottom: 8px; font-style: italic;">SLOs where we can quantify. Engagement signals where we can't.</div>
   <div class="outcomes-with-slo">
     <div class="outcomes-boxes">
       <div class="box">Developer Experience</div>
@@ -432,10 +387,10 @@
 
   <!-- Arrow -->
   <div class="arrow-row">
-    <svg width="24" height="28"><line x1="12" y1="0" x2="12" y2="20" stroke="#aaa" stroke-width="1.5"/><polygon points="6,20 18,20 12,28" fill="#aaa"/></svg>
+    <svg width="16" height="28"><line x1="8" y1="0" x2="8" y2="22" stroke="#000" stroke-width="1"/><polygon points="4,22 12,22 8,28" fill="#000"/></svg>
   </div>
 
-  <!-- Initiative Pillars with Execution Model -->
+  <!-- Initiative Pillars -->
   <div class="section-label">Initiative Pillars</div>
   <div>
 
@@ -450,8 +405,6 @@
         <div class="box">Automation &amp;<br>Agentic AI</div>
         <div class="box">Release<br>Safety</div>
       </div>
-
-      <div style="height: 10px;"></div>
 
       <!-- Distributed -->
       <div class="section-row-label">Distributed: Embedded in Product Teams</div>
@@ -470,7 +423,7 @@
   <!-- Feedback loop -->
   <div class="feedback">
     Flywheels: Operational Learnings Inform Direction<br>
-    <em style="font-weight: 400; font-size: 11px; color: #000;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
+    <em style="font-weight: 400; font-size: 10px; color: #888;">incidents → learn → improve&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;observe → diagnose → strategy</em>
   </div>
 </div>
 
@@ -558,8 +511,8 @@
     <p style="margin-top: 8px;">The same thesis governs both: reliability outcomes are product outcomes.</p>
   </div>
 
-  <!-- Key Practices -->
-  <div class="section-label" style="margin-top: 32px;">Operational Mechanisms</div>
+  <!-- Operational Mechanisms -->
+  <div class="section-label" style="margin-top: 28px;">Operational Mechanisms</div>
   <div class="practices-row">
     <div class="practice-box">
       <div class="practice-title">SLOs</div>
