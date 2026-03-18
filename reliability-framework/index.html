@@ -337,43 +337,44 @@
     margin-bottom: 16px;
   }
 
-  /* Inner layout: values list + prioritization card side by side */
-  .values-inner {
-    display: flex;
-    gap: 20px;
-    align-items: stretch;
-  }
-  .values-list {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  /* Values grid: 2 columns */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
-  /* Prioritization card (nested inside values) */
+  /* Divider between values and engine */
+  .values-divider {
+    border: none;
+    border-top: 1px solid #b0b0ae;
+    margin: 0 0 20px 0;
+  }
+
+  /* Prioritization engine card (below values) */
   .pri-card {
-    flex: 1;
     background: #f0f0ee;
     border: 2px solid #b0b0ae;
     padding: 24px;
-    min-width: 0;
   }
-  .pri-card h2 {
+  .pri-card-header {
+    margin-bottom: 16px;
+  }
+  .pri-card-header h2 {
     font-size: 15px;
     font-weight: 700;
     letter-spacing: -0.2px;
     margin-bottom: 2px;
   }
-  .pri-card .subtitle {
+  .pri-card-header .subtitle {
     font-size: 11px;
     color: #8a8a88;
-    margin-bottom: 14px;
   }
-  .pri-card hr {
-    border: none;
-    border-top: 1px solid #d0d0ce;
-    margin-bottom: 18px;
+  .pri-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
   }
 
   /* Prioritization steps */
@@ -587,48 +588,47 @@
     <div class="values-wrapper-title">Prioritization operates within these constraints</div>
     <div class="values-wrapper-subtitle">The values are the guardrails. They prevent prioritization from going off the rails.</div>
 
-    <div class="values-inner">
-      <!-- Values list (left) -->
-      <div class="values-list">
-        <div class="value-item">
-          <div class="value-title">Every initiative traces to a business outcome</div>
-          <div class="value-body">If you can't draw the line, question the work.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-title">Know the who</div>
-          <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-title">Collective action</div>
-          <div class="value-body">We choose actions for collective success and build the organizational observability to recognize and reward this.</div>
-        </div>
-        <div class="value-item">
-          <div class="value-title">Shared ownership</div>
-          <div class="value-body">Application and reliability teams are jointly accountable for and rewarded for org-level reliability outcomes.</div>
-        </div>
+    <!-- Values: 2-column grid -->
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-title">Every initiative traces to a business outcome</div>
+        <div class="value-body">If you can't draw the line, question the work.</div>
       </div>
+      <div class="value-item">
+        <div class="value-title">Know the who</div>
+        <div class="value-body">Your work draws a causal line to the end user, no matter how deep in the stack.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Collective action</div>
+        <div class="value-body">We choose actions for collective success and build the organizational observability to recognize and reward this.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Shared ownership</div>
+        <div class="value-body">Application and reliability teams are jointly accountable for and rewarded for org-level reliability outcomes.</div>
+      </div>
+    </div>
 
-      <!-- Prioritization Engine (right, nested inside) -->
-      <div class="pri-card">
+    <hr class="values-divider">
+
+    <!-- Prioritization Engine: nested below -->
+    <div class="pri-card">
+      <div class="pri-card-header">
         <h2>Prioritization Engine</h2>
         <div class="subtitle">How we decide what to work on</div>
-        <hr>
-
+      </div>
+      <div class="pri-card-grid">
         <div class="pri-step">
           <div class="step-title">1. Rank by business criticality</div>
-          <div class="step-body">Leadership ranks business outcomes:<br>existential, critical, important</div>
+          <div class="step-body">Leadership ranks business outcomes: existential, critical, important</div>
         </div>
-
         <div class="pri-step">
           <div class="step-title">2. Evaluate within tiers</div>
           <div class="step-body">Assess impact:effort ratio. Weight foundational work that unblocks other initiatives.</div>
         </div>
-
         <div class="pri-step">
           <div class="step-title">3. Account for time sensitivity</div>
           <div class="step-body">Hard deadlines override pure impact:effort.</div>
         </div>
-
         <div class="pri-step">
           <div class="step-title">4. Manage uncertainty deliberately</div>
           <div class="step-body">YOLO is still YOLO, even on reliability. Timebox a spike before committing full resources.</div>
